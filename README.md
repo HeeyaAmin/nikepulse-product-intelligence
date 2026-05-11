@@ -82,21 +82,22 @@ EDA + Sales Visualizations
 Sentiment Analysis + Demand Prediction
         ↓
 Interactive Streamlit Dashboard
+```
 
 Datasets
 
 This project uses publicly available Kaggle datasets related to:
-
+```text
 Nike product catalog data
 Nike sales transaction data
 Nike shoe review data
-
+```
 Raw datasets are not included in this repository. Place them inside:
-
+```text
 data/raw/
-
+```
 Expected file names:
-
+```text
 nike_products.csv
 nike_sales.csv
 nike_shoe_reviews.csv
@@ -110,11 +111,15 @@ conda activate nikepulse
 3. Install dependencies
 pip install -r requirements.txt
 4. Add raw datasets
-
+```
 Place the Kaggle CSV files inside:
 
+```text
 data/raw/
+```
+
 5. Run the pipeline
+```text
 python src/ingestion/load_data.py
 python src/cleaning/clean_data.py
 python src/features/eda_summary.py
@@ -122,12 +127,15 @@ python src/features/generate_charts.py
 python src/models/sentiment_analysis.py
 python src/features/generate_sentiment_charts.py
 python src/models/demand_prediction.py
-6. Launch dashboard
+```
+
+7. Launch dashboard
+```text
 streamlit run dashboard/app.py
 Machine Learning
-
+```
 The demand prediction model predicts units_sold using:
-
+```text
 Product category
 Region
 Retailer
@@ -137,22 +145,25 @@ Price per unit
 Year
 Month
 Quarter
-
+```
 Models compared:
-
+```text
 Linear Regression
 Random Forest Regressor
-
+```
 Evaluation metrics:
-
+```text
 MAE
 RMSE
 R² Score
+```
+
 What I Learned
 
 This project helped me practice building a complete data project from raw data to final dashboard. It strengthened my understanding of data cleaning, feature engineering, customer sentiment analysis, machine learning evaluation, and business-focused dashboard storytelling.
 
 Future Improvements
+
 Add PostgreSQL integration
 Build a formal star schema
 Add SQL analysis queries
@@ -161,7 +172,8 @@ Deploy the Streamlit dashboard
 Add SHAP model explainability
 Add competitor analysis
 Add sneaker resale or hype-score analysis
-Author
+
+Author:
 
 Heeya Amin
 MS Data Science, Indiana University Bloomington
