@@ -13,9 +13,11 @@ nikepulse/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data files
+# Raw data files
 data/raw/
-data/processed/
+
+# Keep processed PySpark outputs for Streamlit deployment
+# data/processed/
 
 # Models
 *.pkl
