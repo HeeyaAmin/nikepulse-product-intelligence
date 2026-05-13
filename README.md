@@ -6,6 +6,9 @@ I built this project to explore how a product-driven sportswear company could us
 
 This project is independent and created for educational and portfolio purposes. It is not affiliated with Nike, Inc.
 
+## Live Demo
+https://nikepulse.streamlit.app/
+
 ---
 
 ## Project Article
