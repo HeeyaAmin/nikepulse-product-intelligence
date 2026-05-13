@@ -1,8 +1,8 @@
-# NikePulse: Product Intelligence & Demand Analytics Dashboard
+# NikePulse: Product Intelligence & Data Engineering Dashboard
 
-NikePulse is a Nike-inspired end-to-end data analytics project that combines data engineering, exploratory analytics, customer sentiment analysis, machine learning, and dashboard development.
+NikePulse is a Nike-inspired end-to-end **data engineering, analytics, machine learning, and dashboarding project**.
 
-I built this project to explore how a product-driven sportswear company could use data to understand product performance, regional demand, customer satisfaction, sales channels, and future demand patterns.
+I built this project to explore how a product-driven sportswear company could use data pipelines, SQL-based KPI logic, customer sentiment analysis, machine learning, and interactive dashboards to understand product performance, regional demand, sales channels, customer satisfaction, and future demand patterns.
 
 This project is independent and created for educational and portfolio purposes. It is not affiliated with Nike, Inc.
 
@@ -17,6 +17,25 @@ https://medium.com/@heeyaamin1/building-nikepulse-a-nike-inspired-product-intell
 
 ---
 
+## Project Purpose
+
+The goal of NikePulse is to simulate a real-world product intelligence platform where raw product, sales, and customer review datasets are transformed into clean, analytics-ready datasets that support business KPIs, machine learning, and dashboard reporting.
+
+This project is now structured more as a **data engineering project** with analytics and ML outputs.
+
+It demonstrates:
+
+- PySpark-based ETL processing
+- SQL-based KPI analysis
+- Databricks-style Bronze, Silver, and Gold architecture
+- Data quality checks
+- Parquet-based processed data storage
+- Customer sentiment analysis
+- Demand prediction modeling
+- Streamlit dashboard development
+
+---
+
 ## What This Project Does
 
 NikePulse helps answer questions like:
@@ -25,155 +44,96 @@ NikePulse helps answer questions like:
 - Which regions and states show the strongest demand?
 - Which sales methods perform best across markets?
 - What do customer reviews reveal about product satisfaction?
+- Which products receive the strongest positive or negative feedback?
 - Can machine learning help predict product unit sales?
-- How can raw datasets be converted into an interactive dashboard?
+- How can raw retail datasets be converted into analytics-ready tables?
+- How can PySpark, SQL, and Databricks-style workflows support product analytics?
 
 ---
 
 ## Dashboard Pages
 
-The Streamlit dashboard includes five main sections:
+The Streamlit dashboard includes six main sections:
 
 1. **Executive Overview**  
-   High-level KPIs including revenue, units sold, average price, ratings, top region, top product category, and monthly sales trends.
+   High-level KPIs including revenue, units sold, average price, average rating, top region, top product category, top sales method, and monthly sales trends.
 
 2. **Sales Performance**  
-   Product-level and retailer-level analysis, including revenue by product, units sold, price vs demand, and retailer performance.
+   Product-level and retailer-level analysis, including revenue by product, units sold by product, price vs demand behavior, and retailer performance.
 
 3. **Regional Insights**  
-   Region and state-level demand analysis, including revenue by region, top states, and sales method performance.
+   Region and state-level demand analysis, including revenue by region, top states, units sold by state, and sales method performance by region.
 
 4. **Customer Sentiment**  
-   NLP-based review sentiment analysis using VADER, including positive/negative review rates, rating distribution, and sample reviews.
+   Review sentiment analysis using rating-based sentiment groups, including positive/negative review rates, rating distribution, average rating by sentiment, and sample customer reviews.
 
 5. **Demand Prediction**  
-   Machine learning model results for predicting units sold using sales, pricing, channel, product, region, and seasonal features.
+   Machine learning model results for predicting units sold using product, region, retailer, sales method, state, price, and seasonal features.
+
+6. **Data Engineering Pipeline**  
+   Pipeline overview showing PySpark ETL processing, processed Parquet outputs, SQL KPI logic, Databricks-ready workflow design, and data quality checks.
 
 ---
 
 ## Tech Stack
 
+### Programming & Analytics
+
 - Python
 - pandas
 - NumPy
 - scikit-learn
-- matplotlib
-- Plotly
-- Streamlit
-- VADER Sentiment Analysis
 - joblib
-- Git/GitHub
+
+### Data Engineering
+
+- PySpark
+- SQL
+- PostgreSQL-ready schema design
+- Parquet
+- Databricks-ready workflow
+- Delta Lake-style Bronze, Silver, and Gold architecture
+
+### Visualization & Dashboarding
+
+- Streamlit
+- Plotly
+- matplotlib
+
+### NLP & Machine Learning
+
+- VADER Sentiment Analysis
+- Rating-based sentiment grouping
+- Linear Regression
+- Random Forest Regressor
+
+### Development Tools
+
+- Git
+- GitHub
+- Conda
+- VS Code
 
 ---
 
-## Project Workflow
+## Project Architecture
 
 ```text
 Raw Kaggle Datasets
         ↓
-Data Loading
+PySpark ETL Pipeline
         ↓
-Data Cleaning & Standardization
+Cleaned Parquet Datasets
         ↓
-Processed Datasets
+SQL KPI + Data Quality Layer
         ↓
-EDA + Sales Visualizations
-        ↓
-Sentiment Analysis + Demand Prediction
+Machine Learning + Sentiment Analysis
         ↓
 Interactive Streamlit Dashboard
-```
+        ↓
+Databricks-Ready Bronze/Silver/Gold Workflow
 
-Datasets
-
-This project uses publicly available Kaggle datasets related to:
-```text
-Nike product catalog data
-Nike sales transaction data
-Nike shoe review data
-```
-Raw datasets are not included in this repository. Place them inside:
-```text
-data/raw/
-```
-Expected file names:
-```text
-nike_products.csv
-nike_sales.csv
-nike_shoe_reviews.csv
-How to Run Locally
-1. Clone the repository
-git clone https://github.com/HeeyaAmin/nikepulse-product-intelligence.git
-cd nikepulse-product-intelligence
-2. Create and activate environment
-conda create -n nikepulse python=3.11 -y
-conda activate nikepulse
-3. Install dependencies
-pip install -r requirements.txt
-4. Add raw datasets
-```
-Place the Kaggle CSV files inside:
-
-```text
-data/raw/
-```
-
-5. Run the pipeline
-```text
-python src/ingestion/load_data.py
-python src/cleaning/clean_data.py
-python src/features/eda_summary.py
-python src/features/generate_charts.py
-python src/models/sentiment_analysis.py
-python src/features/generate_sentiment_charts.py
-python src/models/demand_prediction.py
-```
-
-7. Launch dashboard
-```text
-streamlit run dashboard/app.py
-Machine Learning
-```
-The demand prediction model predicts units_sold using:
-```text
-Product category
-Region
-Retailer
-Sales method
-State
-Price per unit
-Year
-Month
-Quarter
-```
-Models compared:
-```text
-Linear Regression
-Random Forest Regressor
-```
-Evaluation metrics:
-```text
-MAE
-RMSE
-R² Score
-```
-
-What I Learned
-
-This project helped me practice building a complete data project from raw data to final dashboard. It strengthened my understanding of data cleaning, feature engineering, customer sentiment analysis, machine learning evaluation, and business-focused dashboard storytelling.
-
-Future Improvements
-
-Add PostgreSQL integration
-Build a formal star schema
-Add SQL analysis queries
-Add Airflow or Prefect orchestration
-Deploy the Streamlit dashboard
-Add SHAP model explainability
-Add competitor analysis
-Add sneaker resale or hype-score analysis
-
-Author:
+Author
 
 Heeya Amin
 MS Data Science, Indiana University Bloomington
